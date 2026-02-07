@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guía de Cuerdas · Guitarra (Acústica / Eléctrica)</title>
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img class="brandLogo" src="assets/img/logo.png" alt="Musicala" loading="eager" />
+      <div class="brandText">
+        <div class="kicker">Musicala · Guía práctica</div>
+        <h1>Cambio de cuerdas</h1>
+        <p class="sub">Aprende con imágenes: identifica tu cuerda y tu puente, y sigue el paso a paso.</p>
+      </div>
+    </div>
+
+    <div class="topActions" role="toolbar" aria-label="Acciones principales">
+      <button class="btn ghost" id="btnHome" type="button" title="Volver al inicio">Inicio</button>
+      <button class="btn" id="btnReset" type="button" title="Borrar selección">Reiniciar</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- Estado -->
+    <section class="status" aria-live="polite">
+      <div class="pill" id="pillGuitar">Guitarra: <strong>—</strong></div>
+      <div class="pill" id="pillEnd">Terminación: <strong>—</strong></div>
+      <div class="pill" id="pillBridge">Puente: <strong>—</strong></div>
+    </section>
+
+    <!-- =============== VIEW 1 =============== -->
+    <section class="view" id="viewStart">
+      <div class="card">
+        <h2>1) ¿Qué guitarra tienes?</h2>
+        <p class="muted">
+          Escoge la que se parece a la tuya. El tutorial se ajusta solito para evitar que sigas pasos que no aplican.
+        </p>
+
+        <div class="grid">
+          <button class="choice" data-set="guitar" data-value="acustica" type="button" aria-label="Seleccionar guitarra acústica">
+            <div class="choiceIcon" aria-hidden="true">🎸</div>
+            <div class="choiceText">
+              <div class="choiceTitle">Acústica</div>
+              <div class="choiceDesc">Generalmente cuerdas de acero con <b>ball end</b>.</div>
+            </div>
+          </button>
+
+          <button class="choice" data-set="guitar" data-value="electrica" type="button" aria-label="Seleccionar guitarra eléctrica">
+            <div class="choiceIcon" aria-hidden="true">🎛️</div>
+            <div class="choiceText">
+              <div class="choiceTitle">Eléctrica</div>
+              <div class="choiceDesc">Cuerdas de acero con <b>ball end</b> y varios tipos de puente.</div>
+            </div>
+          </button>
+
+          <button class="choice subtle" data-set="guitar" data-value="nose" type="button" aria-label="No sé qué guitarra tengo">
+            <div class="choiceIcon" aria-hidden="true">🧠</div>
+            <div class="choiceText">
+              <div class="choiceTitle">No sé</div>
+              <div class="choiceDesc">Te guío por lo que ves (terminación + puente).</div>
+            </div>
+          </button>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>2) ¿Tu cuerda tiene “bolita” o no?</h2>
+        <p class="muted">
+          La “bolita/tope” se llama <b>ball end</b>. Si es un aro es <b>loop end</b>. Si no trae nada, es <b>tie end</b> (se amarra).
+        </p>
+
+        <div class="grid grid3">
+          <button class="choice" data-set="end" data-value="ball" type="button" aria-label="Seleccionar ball end">
+            <img src="assets/img/ballend.png" alt="Cuerda con ball end (bolita metálica)" loading="lazy" />
+            <div class="choiceText">
+              <div class="choiceTitle">Ball end</div>
+              <div class="choiceDesc">Bolita/tope metálico al final.</div>
+            </div>
+          </button>
+
+          <button class="choice" data-set="end" data-value="loop" type="button" aria-label="Seleccionar loop end">
+            <img src="assets/img/loopend.png" alt="Cuerda con loop end (aro/lazo)" loading="lazy" />
+            <div class="choiceText">
+              <div class="choiceTitle">Loop end</div>
+              <div class="choiceDesc">Un aro/lazo al final (ojal).</div>
+            </div>
+          </button>
+
+          <button class="choice" data-set="end" data-value="tie" type="button" aria-label="Seleccionar tie end">
+            <img src="assets/img/tieend.png" alt="Cuerda tie end (sin bolita, se amarra)" loading="lazy" />
+            <div class="choiceText">
+              <div class="choiceTitle">Tie end</div>
+              <div class="choiceDesc">Sin bola: se amarra en el puente.</div>
+            </div>
+          </button>
+        </div>
+
+        <div class="actionsRow">
+          <button class="btn" id="btnGoBridge" type="button">Siguiente: identificar puente</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== VIEW 2 =============== -->
+    <section class="view" id="viewBridge" hidden>
+      <div class="card">
+        <h2>3) Identifica tu puente</h2>
+        <p class="muted">
+          Elige el que se parece al tuyo. Por ahora el app tiene los dos más comunes (acústica con pines y Strat).
+          Si tu puente es otro, igual te damos la guía general.
+        </p>
+
+        <div class="grid grid3">
+          <button class="choice" data-set="bridge" data-value="pin" type="button" aria-label="Seleccionar puente acústico con pines">
+            <img src="assets/img/pines.png" alt="Puente acústico con pines" loading="lazy" />
+            <div class="choiceText">
+              <div class="choiceTitle">Acústico con pines</div>
+              <div class="choiceDesc">La cuerda entra y se bloquea con un pin.</div>
+            </div>
+          </button>
+
+          <button class="choice" data-set="bridge" data-value="tremolo" type="button" aria-label="Seleccionar puente tipo Strat (trémolo)">
+            <img src="assets/img/puentestrat.png" alt="Puente trémolo tipo Strat" loading="lazy" />
+            <div class="choiceText">
+              <div class="choiceTitle">Trémolo (Strat)</div>
+              <div class="choiceDesc">Entra por atrás del bloque/puente.</div>
+            </div>
+          </button>
+
+          <button class="choice subtle" data-set="bridge" data-value="otro" type="button" aria-label="Seleccionar otro tipo de puente">
+            <div class="choiceIcon" aria-hidden="true">🧩</div>
+            <div class="choiceText">
+              <div class="choiceTitle">Otro / No sé</div>
+              <div class="choiceDesc">Te damos una guía general (anclaje + clavijas).</div>
+            </div>
+          </button>
+        </div>
+
+        <div class="note">
+          <strong>Nota:</strong> Si escoges <b>Tie end</b>, normalmente es puente clásico (amarre). Si estás en acústica/eléctrica con acero,
+          lo más común es <b>Ball end</b>.
+        </div>
+
+        <div class="actionsRow">
+          <button class="btn ghost" id="btnBackStart" type="button">Volver</button>
+          <button class="btn" id="btnGoSteps" type="button">Ir al paso a paso</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============== VIEW 3 =============== -->
+    <section class="view" id="viewSteps" hidden>
+      <div class="card">
+        <div class="headRow">
+          <div>
+            <h2>4) Paso a paso guiado</h2>
+            <p class="muted" id="stepsHint">Tu guía se adapta según lo que escogiste.</p>
+          </div>
+
+          <div class="seg" role="tablist" aria-label="Secciones del paso a paso">
+            <button class="segBtn isOn" data-tab="tutorial" type="button" role="tab" aria-selected="true">Tutorial</button>
+            <button class="segBtn" data-tab="errores" type="button" role="tab" aria-selected="false">Errores</button>
+          </div>
+        </div>
+
+        <div id="tutorialPane" role="tabpanel">
+          <ol class="steps" id="stepsList"></ol>
+
+          <div class="actionsRow">
+            <button class="btn ghost" id="btnBackBridge" type="button">Volver</button>
+            <button class="btn" id="btnMarkAll" type="button">Marcar todo como listo</button>
+          </div>
+        </div>
+
+        <div id="errorsPane" hidden role="tabpanel">
+          <div class="errors" id="errorsList"></div>
+
+          <div class="actionsRow">
+            <button class="btn ghost" id="btnBackBridge2" type="button">Volver</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div class="tiny">
+        Términos útiles: <b>Ball end</b> (bola) · <b>Loop end</b> (lazo) · <b>Tie end</b> (amarre)
+      </div>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
